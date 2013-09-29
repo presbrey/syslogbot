@@ -1,0 +1,16 @@
+{
+  "default": "#catch-all", 
+  "hosts": {
+    "192.168.1.101": "#laptop1", 
+    "192.168.1.102": "#desktop1", 
+    "192.168.1.21": "#routers", 
+    "192.168.1.22": "#routers"
+  }, 
+  "nick": "syslog", 
+  "password": "server-password", 
+  "regex": {
+    "INFO": "", 
+    "d?e?bug": "#debug"
+  }, 
+  "server": "localhost:6667"
+}
