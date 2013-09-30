@@ -87,13 +87,18 @@ func (s *Server) load(filename string) {
 func (s *Server) readLoop() {
     var (
         target string
+        text string
         ex bool
     )
     for {
         target = ""
         m := s.syslogHandler.Get()
         if m == nil { break }
-        text := m.Tag1 + " " + m.Content1[27:len(m.Content1)-2]
+        if len(m.Content1) > 27 {
+            text = m.Tag1 + " " + m.Content1[27:len(m.Content1)-2]
+        } else {
+            text = m.Tag1 + "|" + m.Content1
+        }
         if text[len(text)-1] == '\n' { text = text[:len(text)-1] }
         host := m.Source.(*net.UDPAddr).IP.String()
         if target, ex = s.config.Hosts[host]; !ex {
