@@ -95,7 +95,7 @@ func (s *Server) readLoop() {
         m := s.syslogHandler.Get()
         if m == nil { break }
         if len(m.Content1) > 27 {
-            text = m.Tag1 + " " + m.Content1[27:len(m.Content1)-2]
+            text = m.Tag1 + " " + m.Content1[27:len(m.Content1)]
         } else {
             text = m.Tag1 + "|" + m.Content1
         }
