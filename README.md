@@ -16,7 +16,7 @@ syslogbot relays syslogd messages from UDP port 514 to IRC
 
 Please copy the example [JSON config](example.json) and modify to suit your system.
 
-Use [supervisord](supervisord.org) to keep syslogbot running with `autorestart=true`.
+Use [supervisord](http://supervisord.org) to keep syslogbot running with `autorestart=true`.
 
 ## Dynamic Filtering
 
